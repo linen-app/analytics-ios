@@ -108,6 +108,10 @@
             name = @"Unknown";
         }
     }
+    
+    if ([name hasPrefix:@"UI"] || [name hasPrefix:@"ICM"]) {
+        return;
+    }
 
     if ([top conformsToProtocol:@protocol(SEGScreenReporting)] && [top respondsToSelector:@selector(seg_trackScreen:name:)]) {
         __auto_type screenReporting = (UIViewController<SEGScreenReporting>*)top;
